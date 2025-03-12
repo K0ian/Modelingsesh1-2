@@ -30,6 +30,7 @@ class Point:
         other_distance = other.distance_orig()
         return my_distance > other_distance
 
+if __name__ == "__main__":
 # now we need to instantiate it!
 p = Point(1, 2) # p is an instance of 1 and 2
 p2 = Point(2, 3)
