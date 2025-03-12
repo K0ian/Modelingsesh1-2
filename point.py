@@ -39,5 +39,6 @@ for i in range(5):
     points.append(Point(random.randint(-10, 10), # x value
                         random.randint(-10, 10))) # y value
 print("I got these 5 random points:")
-for p in points:
-    print(p)
+print(points)
+p = Point(3, 4)
+print(p.distance_orig()) # expect 5 answer
