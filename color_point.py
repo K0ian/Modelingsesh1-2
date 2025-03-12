@@ -1,3 +1,4 @@
+import random
 from point import Point
 
 class ColorPoint(Point):
@@ -11,3 +12,15 @@ class ColorPoint(Point):
 
 p = ColorPoint(1, 2, "red")
 print(p)
+colors = ("red", "green", "blue", "yellow", "black", "magneta" ,
+          "cyan", "white", "burgundy", "periwinkle", "marsala")
+color_points = []
+for i in range(10):
+    color_points.append(
+        ColorPoint(random.randint(-10, 10),
+                   random.randint(-10, 10),
+                   random.choice(colors)))
+
+print(color_points)
+color_points.sort()
+print(color_points)
