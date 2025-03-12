@@ -19,6 +19,8 @@ class Point:
 
         return f"Point ({self.x}, {self.y})"
 
+    def __repr__(self):
+        return self.__str__() # use the same way of printing as str
 
 # now we need to instantiate it!
 p = Point(1, 2) # p is an instance of 1 and 2
