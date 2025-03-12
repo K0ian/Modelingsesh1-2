@@ -21,6 +21,8 @@ class Point:
 
     def __repr__(self):
         return self.__str__() # use the same way of printing as str
+    def distance_orig(self):
+        return (self.x**2 + self.y**2)**0.5 # square root of the sum of x
 
 # now we need to instantiate it!
 p = Point(1, 2) # p is an instance of 1 and 2
