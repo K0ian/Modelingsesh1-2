@@ -1,3 +1,5 @@
+import random
+
 class Point:
     def __init__(self, x, y):
         """
@@ -27,3 +29,11 @@ print(f"p4.x={p4.x} and p4.y={p4.y}")
 p.x = 20
 print(f"p.x={p.x} and p.y={p.y}")
 print(p)
+# Create a list of 5 random points
+points = []
+for i in range(5):
+    points.append(Point(random.randint(-10, 10), # x value
+                        random.randint(-10, 10))) # y value
+print("I got these 5 random points:")
+for p in points:
+    print(p)
