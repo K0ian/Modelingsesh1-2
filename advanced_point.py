@@ -5,7 +5,25 @@ class AdvancedPoint(ColorPoint):
     def __init__(self, x, y, color):
         if color not in self.COLORS:
             raise PointException(f"Invalid color, must be one of {self.COLORS}")
-        super().__init__(x, y, color)
+        self._x = x
+        self._y = y
+        self._color = color
+
+    @property # shortcut for calling a function without needing to say p.x() instead calling it p.x
+    def x(self):
+        return self._x
+
+    @x.setter
+    def x(self, value):
+        self._x = value
+
+    @property
+    def y(self):
+        return self._y
+
+    @property
+    def color(self):
+        return self._color
 
     @classmethod
     def add_color(cls, color):
@@ -31,6 +49,7 @@ class AdvancedPoint(ColorPoint):
 
 AdvancedPoint.add_color("rojo")
 p = AdvancedPoint(1, 2, "rojo")
+print(p.x)
 print(p)
 print(p.distance_orig())
 p2 = AdvancedPoint.from_tuple((3, 2))
