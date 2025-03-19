@@ -19,6 +19,9 @@ class ColorPoint(Point):
         return f"<{self.color}: {self.x}, {self.y}>"
 
 p = ColorPoint(1, 2, "red")
+p.color = "rojo"
+p.x = 200
+
 print(p.distance_orig())
 print(p)
 # colors = ("red", "green", "blue", "yellow", "black", "magneta" ,
