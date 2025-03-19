@@ -11,14 +11,14 @@ class ColorPoint(Point):
             raise PointException("x must be a number")
         if not isinstance(y, (int, float)):
             raise PointException("y must be a number")
-        self.x = x
-        self.y = y
+
+        super().__init__(x, y) # replaces the self.x and self.y
         self.color = color
 
     def __str__(self):
         return f"<{self.color}: {self.x}, {self.y}>"
 
-p = ColorPoint(1, "jane", "red")
+p = ColorPoint(1, 2, "red")
 print(p.distance_orig())
 print(p)
 # colors = ("red", "green", "blue", "yellow", "black", "magneta" ,
