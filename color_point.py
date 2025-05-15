@@ -4,34 +4,56 @@ from point import Point  # Import the Point class from a separate file
 class PointException(Exception):
     """
     Custom exception class to handle invalid Point inputs.
+
+    This exception is raised when invalid values are provided for Point coordinates,
+    such as non-numeric types.
     """
-    pass
+
+    def __init__(self, *args):
+        """
+        Initialize the PointException.
+
+        :param args: optional error message(s)
+        :return: None
+        """
+        super().__init__(*args)
 
 class ColorPoint(Point):
+    """
+    Extends the Point class by adding a color attribute.
+
+    ColorPoint instances represent points in 2D space with an associated color.
+    Input validation ensures x and y are numeric.
+    """
+
     def __init__(self, x, y, color):
         """
-        Initialize a ColorPoint, which extends Point by adding a color attribute.
-        :param x: x-coordinate (int or float)
-        :param y: y-coordinate (int or float)
-        :param color: string representing the color
-        :raises PointException: if x or y is not a number
+        Initialize a ColorPoint with x, y coordinates and a color.
+
+        :param x: int or float - the x-coordinate
+        :param y: int or float - the y-coordinate
+        :param color: str - the color associated with the point
+        :raises PointException: if x or y is not a number (int or float)
+        :return: None
         """
-        # raise an exception if we try to have not a number
         if not isinstance(x, (int, float)):
             raise PointException("x must be a number")
         if not isinstance(y, (int, float)):
             raise PointException("y must be a number")
 
-        super().__init__(x, y) # replaces the self.x and self.y
-        self.color = color  # Assign color attribute
+        super().__init__(x, y)  # Initialize base Point attributes
+        self.color = color      # Assign color attribute
 
     def __str__(self):
         """
-        Return a readable string showing color and coordinates.
-        :return: formatted string "<color: x, y>"
+        Provide a human-readable string representation of the ColorPoint.
+
+        :param: None
+        :return: str - formatted string showing color and coordinates like "<color: x, y>"
         """
         return f"<{self.color}: {self.x}, {self.y}>"
 
+# Example usage:
 p = ColorPoint(1, 2, "red")  # Instantiate a ColorPoint
 p.color = "rojo"             # Modify its color
 p.x = 200                    # Modify its x value
@@ -39,6 +61,7 @@ p.x = 200                    # Modify its x value
 print(p.distance_orig())     # Use inherited method to get distance from origin
 print(p)                     # Use ColorPoint’s __str__
 
+# The following code to create and sort random ColorPoints is commented out:
 # colors = ("red", "green", "blue", "yellow", "black", "magneta",
 #           "cyan", "white", "burgundy", "periwinkle", "marsala")
 # color_points = []  # List to store 10 random ColorPoint instances
